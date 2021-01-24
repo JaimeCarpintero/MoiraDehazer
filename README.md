@@ -1,2 +1,2 @@
 # MoiraDehazer
-DCP de hazing implementation for IOS using swift 
+DCP dehazing implementation for IOS using swift 

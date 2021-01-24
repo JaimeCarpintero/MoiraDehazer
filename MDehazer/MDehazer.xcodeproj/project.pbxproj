@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91525BD12F70060BB4F /* AppDelegate.swift */; };
 		EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */; };
-		EB7EF91A25BD12F70060BB4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91925BD12F70060BB4F /* ViewController.swift */; };
+		EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91925BD12F70060BB4F /* MoiraDehazerViewController.swift */; };
 		EB7EF91D25BD12F70060BB4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF91B25BD12F70060BB4F /* Main.storyboard */; };
 		EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91E25BD12F70060BB4F /* MDehazer.xcdatamodeld */; };
 		EB7EF92225BD12F80060BB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92125BD12F80060BB4F /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		EB7EF91225BD12F70060BB4F /* MDehazer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDehazer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7EF91525BD12F70060BB4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB7EF91925BD12F70060BB4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB7EF91925BD12F70060BB4F /* MoiraDehazerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoiraDehazerViewController.swift; sourceTree = "<group>"; };
 		EB7EF91C25BD12F70060BB4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB7EF91F25BD12F70060BB4F /* MDehazer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MDehazer.xcdatamodel; sourceTree = "<group>"; };
 		EB7EF92125BD12F80060BB4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,8 +62,7 @@
 				EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */,
 				EB7EF92E25BD13520060BB4F /* Controllers */,
 				EB7EF92D25BD13490060BB4F /* Views */,
-				EB7EF92125BD12F80060BB4F /* Assets.xcassets */,
-				EB7EF92325BD12F80060BB4F /* LaunchScreen.storyboard */,
+				EB7EF93125BD224D0060BB4F /* Resources */,
 				EB7EF92625BD12F80060BB4F /* Info.plist */,
 				EB7EF91E25BD12F70060BB4F /* MDehazer.xcdatamodeld */,
 			);
@@ -81,9 +80,18 @@
 		EB7EF92E25BD13520060BB4F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB7EF91925BD12F70060BB4F /* ViewController.swift */,
+				EB7EF91925BD12F70060BB4F /* MoiraDehazerViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EB7EF93125BD224D0060BB4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB7EF92125BD12F80060BB4F /* Assets.xcassets */,
+				EB7EF92325BD12F80060BB4F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7EF91A25BD12F70060BB4F /* ViewController.swift in Sources */,
+				EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */,
 				EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */,
 				EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */,
 				EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */,

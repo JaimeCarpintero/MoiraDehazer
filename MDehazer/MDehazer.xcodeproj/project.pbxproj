@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB1C288725BE37F600C022E5 /* ImageBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288625BE37F600C022E5 /* ImageBuffer.swift */; };
+		EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288A25BE38B100C022E5 /* ImageUtils.swift */; };
+		EB1C288F25BE7CA600C022E5 /* ImageBufferData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */; };
 		EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91525BD12F70060BB4F /* AppDelegate.swift */; };
 		EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */; };
 		EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91925BD12F70060BB4F /* MoiraDehazerViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB1C288625BE37F600C022E5 /* ImageBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuffer.swift; sourceTree = "<group>"; };
+		EB1C288A25BE38B100C022E5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBufferData.swift; sourceTree = "<group>"; };
 		EB7EF91225BD12F70060BB4F /* MDehazer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDehazer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7EF91525BD12F70060BB4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +45,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB1C288925BE37FB00C022E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB1C288A25BE38B100C022E5 /* ImageUtils.swift */,
+				EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */,
+				EB1C288625BE37F600C022E5 /* ImageBuffer.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		EB7EF90925BD12F70060BB4F = {
 			isa = PBXGroup;
 			children = (
+				EB1C288925BE37FB00C022E5 /* Models */,
 				EB7EF91425BD12F70060BB4F /* MDehazer */,
 				EB7EF91325BD12F70060BB4F /* Products */,
 			);
@@ -165,9 +182,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */,
+				EB1C288725BE37F600C022E5 /* ImageBuffer.swift in Sources */,
 				EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */,
 				EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */,
 				EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */,
+				EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */,
+				EB1C288F25BE7CA600C022E5 /* ImageBufferData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

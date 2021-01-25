@@ -3,7 +3,6 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
-//
 
 import UIKit
 
@@ -30,6 +29,62 @@ class MoiraDehazerViewController: UIViewController {
         //NOTE [Jaime]: Here maybe we can use the callback to start the dehazing process
         present(mImagePicker, animated: true, completion: nil)
     }
+    
+    func getNewImage(sourceImage: UIImage) -> UIImage{
+        
+            if let pickedImageCgi = sourceImage.cgImage{
+                let colosrpace = CGColorSpaceCreateDeviceRGB()
+                let width: Int = pickedImageCgi.width
+                let height: Int = pickedImageCgi.height
+                let bitsPerComponent = 8
+                let bytesPerPixel = pickedImageCgi.bitsPerPixel / bitsPerComponent
+                let bytesPerRow = bytesPerPixel * width
+                let bitmapInfo = pickedImageCgi.bitmapInfo.rawValue
+                let imageSize = width * height
+                
+                guard let newImageContext = CGContext(data: nil,
+                                                      width: width,
+                                                      height: height,
+                                                      bitsPerComponent: bitsPerComponent,
+                                                      bytesPerRow: bytesPerRow,
+                                                      space: colosrpace,
+                                                      bitmapInfo: bitmapInfo) else{
+                    fatalError("Could not load image properly")
+                }
+                
+                newImageContext.draw(pickedImageCgi, in: CGRect(x: 0, y: 0, width: width, height: height))
+                
+                guard let imageBuffer = newImageContext.data else{
+                    fatalError("Could not retrieve data from image")
+                }
+                
+                let buffer: ImageBuffer = ImageBuffer(width: width, height: height, channels: channelRGBA)
+                let bufferData: ImageBufferData<UInt8> = buffer.data()
+                for index in 0..<imageSize{
+                    let rgbaIndex = index * bytesPerPixel
+                    bufferData[rgbaIndex] = 128
+                    bufferData[rgbaIndex + 1] = 128
+                    bufferData[rgbaIndex + 2] = 128
+                    bufferData[rgbaIndex + 3] = 255
+                }
+                
+                let imageDataBuffer = imageBuffer.bindMemory(to: UInt8.self, capacity: imageSize * bytesPerPixel)
+                
+                for index in 0..<imageSize{
+                    let rgbaIndex = index * bytesPerPixel
+                    imageDataBuffer[rgbaIndex] = bufferData[rgbaIndex]
+                    imageDataBuffer[rgbaIndex + 1] = bufferData[rgbaIndex + 1]
+                    imageDataBuffer[rgbaIndex + 2] = bufferData[rgbaIndex + 2]
+                    imageDataBuffer[rgbaIndex + 3] = bufferData[rgbaIndex + 3]
+                }
+                
+                let outputCGImage = newImageContext.makeImage()!
+                let outputImage = UIImage(cgImage: outputCGImage, scale: sourceImage.scale, orientation: sourceImage.imageOrientation)
+                return outputImage
+            }
+            return sourceImage
+    }
+    
 }
 
 //MARK: -Extensions
@@ -41,11 +96,9 @@ extension MoiraDehazerViewController: UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        
         if let imagePickedByUser = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            dehazeImageView.image = imagePickedByUser
-            guard let ciimage = CIImage(image: imagePickedByUser) else{
-                fatalError("Could not load image")
-            }
+            dehazeImageView.image = getNewImage(sourceImage: imagePickedByUser)
         }
         mImagePicker.dismiss(animated: true, completion: nil)
     }

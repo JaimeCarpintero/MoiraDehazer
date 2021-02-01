@@ -8,7 +8,7 @@ import Foundation
 
 class ImageBufferData<T>{
     init(dataSize: Int, initVal: T) {
-        mData = Array<T>(repeating: initVal, count: dataSize)
+        mData = UnsafeMutablePointer<T>.allocate(capacity: dataSize)
     }
     subscript(index: Int) -> T{
         get{
@@ -19,5 +19,5 @@ class ImageBufferData<T>{
         }
     }
     
-    private var mData: Array<T>
+    private var mData: UnsafeMutablePointer<T>
 }

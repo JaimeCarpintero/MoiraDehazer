@@ -17,6 +17,7 @@ class ImageBuffer{
     
     func setData(index: Int, value: UInt8){
         assert(index >= 0 && index < mImageSize)
+        mData[index] = value
     }
     
     func width() -> Int{
@@ -24,16 +25,21 @@ class ImageBuffer{
     }
     
     func height() -> Int{
-        return mWidth
+        return mHeight
     }
     
     func size() -> Int{
         return mImageSize
     }
     
+    func channels() -> Int{
+        return mChannels
+    }
+    
     func data() -> ImageBufferData<UInt8>{
         return mData
     }
+    
     
     private var mWidth: Int
     private var mHeight: Int

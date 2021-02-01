@@ -60,13 +60,9 @@ class MoiraDehazerViewController: UIViewController {
                 
                 let buffer: ImageBuffer = ImageBuffer(width: width, height: height, channels: channelRGBA)
                 let bufferData: ImageBufferData<UInt8> = buffer.data()
-                for index in 0..<imageSize{
-                    let rgbaIndex = index * bytesPerPixel
-                    bufferData[rgbaIndex] = 128
-                    bufferData[rgbaIndex + 1] = 128
-                    bufferData[rgbaIndex + 2] = 128
-                    bufferData[rgbaIndex + 3] = 255
-                }
+   
+                let imageDispatcher: ImageDispatcher = ImageDispatcher()
+                imageDispatcher.dispatchImageFunction(imageBuffer: buffer, samplerFunction: imageDispatcher.doSomething(imageData:rgbIndex:))
                 
                 let imageDataBuffer = imageBuffer.bindMemory(to: UInt8.self, capacity: imageSize * bytesPerPixel)
                 

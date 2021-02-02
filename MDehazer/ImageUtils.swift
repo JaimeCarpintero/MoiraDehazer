@@ -3,6 +3,7 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
+//  jaime.carpintero@uabc.edu.mx
 
 import Foundation
 
@@ -11,8 +12,8 @@ let channelRGBA: Int = 4
 
 class ImageDispatcher
 {
-    func dispatchImageFunction(imageBuffer: ImageBuffer,
-                               samplerFunction: @escaping (_ myImageData: ImageBufferData<UInt8>, _ rgbIndex: Int) -> Void)
+    func dispatchImageFunction(imageBuffer: ImageBuffer<Float>,
+                               samplerFunction: @escaping (_ myImageData: ImageBufferData<Float>, _ rgbIndex: Int) -> Void)
     {
         let width: Int = imageBuffer.width()
         let height: Int = imageBuffer.height()
@@ -32,7 +33,7 @@ class ImageDispatcher
         }
         
         let channels = imageBuffer.channels()
-        let imageData: ImageBufferData<UInt8> = imageBuffer.data()
+        let imageData: ImageBufferData<Float> = imageBuffer.data()
         let dispatchGroup: DispatchGroup = DispatchGroup()
         
         for index in 0..<(regions.count){
@@ -45,20 +46,20 @@ class ImageDispatcher
                         if(index == 0){
                             samplerFunction(imageData, rgbIndex)
                         }else if(index == 1){
-                            imageData[rgbIndex] = 200
-                            imageData[rgbIndex + 1] = 125
-                            imageData[rgbIndex + 2] = 100
-                            imageData[rgbIndex + 3] = 255
+                            imageData[rgbIndex] = 0.85
+                            imageData[rgbIndex + 1] = 0.55
+                            imageData[rgbIndex + 2] = 0.45
+                            imageData[rgbIndex + 3] = 1.0
                         }else if(index == 2){
-                            imageData[rgbIndex] = 50
-                            imageData[rgbIndex + 1] = 50
-                            imageData[rgbIndex + 2] = 100
-                            imageData[rgbIndex + 3] = 255
+                            imageData[rgbIndex] = 0.2
+                            imageData[rgbIndex + 1] = 0.3
+                            imageData[rgbIndex + 2] = 0.5
+                            imageData[rgbIndex + 3] = 1.0
                         }else{
-                            imageData[rgbIndex] = 0
-                            imageData[rgbIndex + 1] = 0
-                            imageData[rgbIndex + 2] = 255
-                            imageData[rgbIndex + 3] = 255
+                            imageData[rgbIndex] = 0.0
+                            imageData[rgbIndex + 1] = 0.0
+                            imageData[rgbIndex + 2] = 1.0
+                            imageData[rgbIndex + 3] = 1.0
                         }
                     }
                 }
@@ -72,11 +73,11 @@ class ImageDispatcher
         
     }
     
-    func doSomething(imageData: ImageBufferData<UInt8>, rgbIndex: Int){
-        imageData[rgbIndex] = 125
-        imageData[rgbIndex + 1] = 200
-        imageData[rgbIndex + 2] = 100
-        imageData[rgbIndex + 3] = 255
+    func doSomething(imageData: ImageBufferData<Float>, rgbIndex: Int){
+        imageData[rgbIndex] = 0.5
+        imageData[rgbIndex + 1] = 0.75
+        imageData[rgbIndex + 2] = 0.5
+        imageData[rgbIndex + 3] = 1.0
     }
 
     

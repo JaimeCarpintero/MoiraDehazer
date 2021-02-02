@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB17B98825C8D2E700735957 /* AbstractDehazeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98725C8D2E700735957 /* AbstractDehazeConfiguration.swift */; };
+		EB17B98C25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */; };
+		EB17B98F25C8D54E00735957 /* IDehazeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */; };
+		EB17B99225C8D5F200735957 /* DarkChannelPriorAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */; };
 		EB1C288725BE37F600C022E5 /* ImageBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288625BE37F600C022E5 /* ImageBuffer.swift */; };
 		EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288A25BE38B100C022E5 /* ImageUtils.swift */; };
 		EB1C288F25BE7CA600C022E5 /* ImageBufferData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB17B98725C8D2E700735957 /* AbstractDehazeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDehazeConfiguration.swift; sourceTree = "<group>"; };
+		EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkChannelPriorConfiguration.swift; sourceTree = "<group>"; };
+		EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDehazeAlgorithm.swift; sourceTree = "<group>"; };
+		EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkChannelPriorAlgorithm.swift; sourceTree = "<group>"; };
 		EB1C288625BE37F600C022E5 /* ImageBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuffer.swift; sourceTree = "<group>"; };
 		EB1C288A25BE38B100C022E5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBufferData.swift; sourceTree = "<group>"; };
@@ -45,9 +53,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB17B98625C8D2C500735957 /* DehazeModule */ = {
+			isa = PBXGroup;
+			children = (
+				EB17B98725C8D2E700735957 /* AbstractDehazeConfiguration.swift */,
+				EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */,
+				EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */,
+				EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */,
+			);
+			path = DehazeModule;
+			sourceTree = "<group>";
+		};
 		EB1C288925BE37FB00C022E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EB17B98625C8D2C500735957 /* DehazeModule */,
 				EB1C288A25BE38B100C022E5 /* ImageUtils.swift */,
 				EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */,
 				EB1C288625BE37F600C022E5 /* ImageBuffer.swift */,
@@ -181,9 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB17B98F25C8D54E00735957 /* IDehazeAlgorithm.swift in Sources */,
 				EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */,
+				EB17B99225C8D5F200735957 /* DarkChannelPriorAlgorithm.swift in Sources */,
 				EB1C288725BE37F600C022E5 /* ImageBuffer.swift in Sources */,
+				EB17B98C25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift in Sources */,
 				EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */,
+				EB17B98825C8D2E700735957 /* AbstractDehazeConfiguration.swift in Sources */,
 				EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */,
 				EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */,
 				EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */,

@@ -3,6 +3,7 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
+//  jaime.carpintero@uabc.edu.mx
 
 import UIKit
 
@@ -15,6 +16,7 @@ class MoiraDehazerViewController: UIViewController {
     @IBOutlet weak var saturationFactorSlider: NSLayoutConstraint!
     
     private let mImagePicker: UIImagePickerController = UIImagePickerController()
+    private let mDehazeAlgorithm: DarkChannelPriorAlgorithm = DarkChannelPriorAlgorithm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,20 +60,40 @@ class MoiraDehazerViewController: UIViewController {
                     fatalError("Could not retrieve data from image")
                 }
                 
-                let buffer: ImageBuffer = ImageBuffer(width: width, height: height, channels: channelRGBA)
-                let bufferData: ImageBufferData<UInt8> = buffer.data()
+                let inputImageBuffer: ImageBuffer<Float> = ImageBuffer<Float>(width: width,
+                                                                        height: height,
+                                                                        channels: channelRGBA,
+                                                                        initialValue: 1.0)
+                
+                let outputImageBuffer: ImageBuffer<Float> = ImageBuffer<Float>(width: width,
+                                                                         height: height,
+                                                                         channels: channelRGBA,
+                                                                         initialValue: 1.0)
+                
+                let floatBufferData: ImageBufferData<Float> = inputImageBuffer.data()
    
                 let imageDispatcher: ImageDispatcher = ImageDispatcher()
-                imageDispatcher.dispatchImageFunction(imageBuffer: buffer, samplerFunction: imageDispatcher.doSomething(imageData:rgbIndex:))
+//                imageDispatcher.dispatchImageFunction(imageBuffer: buffer,
+//                                                      samplerFunction: imageDispatcher.doSomething(imageData:rgbIndex:))
+                
+                let configuration = DarkChannelPriorConfiguration(width: width,
+                                                                  height: height,
+                                                                  isAlphaPresent: true,
+                                                                  windowSize: 15,
+                                                                  wHazeFactor: 0.95)
+                mDehazeAlgorithm.apply(configuration: configuration,
+                                       input: inputImageBuffer,
+                                       output: outputImageBuffer)
+                
                 
                 let imageDataBuffer = imageBuffer.bindMemory(to: UInt8.self, capacity: imageSize * bytesPerPixel)
                 
                 for index in 0..<imageSize{
                     let rgbaIndex = index * bytesPerPixel
-                    imageDataBuffer[rgbaIndex] = bufferData[rgbaIndex]
-                    imageDataBuffer[rgbaIndex + 1] = bufferData[rgbaIndex + 1]
-                    imageDataBuffer[rgbaIndex + 2] = bufferData[rgbaIndex + 2]
-                    imageDataBuffer[rgbaIndex + 3] = bufferData[rgbaIndex + 3]
+                    imageDataBuffer[rgbaIndex] = UInt8(floatBufferData[rgbaIndex] * 255)
+                    imageDataBuffer[rgbaIndex + 1] = UInt8(floatBufferData[rgbaIndex + 1] * 255)
+                    imageDataBuffer[rgbaIndex + 2] = UInt8(floatBufferData[rgbaIndex + 2] * 255)
+                    imageDataBuffer[rgbaIndex + 3] = UInt8(floatBufferData[rgbaIndex + 3] * 255)
                 }
                 
                 let outputCGImage = newImageContext.makeImage()!

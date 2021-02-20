@@ -78,8 +78,7 @@ class ImageDispatcher
                         normalizeBuffer: ImageBuffer<Float>,
                         normalizationFunction: @escaping (_ sourceData: UnsafeMutablePointer<UInt8>,
                                                           _ myImageData: ImageBufferData<Float>,
-                                                          _ rgbaIndex: Int) -> Void)
-    {
+                                                          _ rgbaIndex: Int) -> Void){
         let width: Int = normalizeBuffer.width()
         let height: Int = normalizeBuffer.height()
         
@@ -120,8 +119,8 @@ class ImageDispatcher
         dispatchGroup.notify(queue: .global()){
             print("Finishing Image normalization process")
         }
-        dispatchGroup.wait()
         print("Starting image normalization")
+        dispatchGroup.wait()
     }
     
     func doSomething(imageData: ImageBufferData<Float>, rgbIndex: Int){
@@ -133,8 +132,7 @@ class ImageDispatcher
     
     func normalize(bufferToNormalize: UnsafeMutablePointer<UInt8>,
                    normalizeBufferData: ImageBufferData<Float>,
-                   rgbaIndex: Int)
-    {
+                   rgbaIndex: Int){
         normalizeBufferData[rgbaIndex] = Float(bufferToNormalize[rgbaIndex]) / 255.0
         normalizeBufferData[rgbaIndex + 1] = Float(bufferToNormalize[rgbaIndex + 1]) / 255.0
         normalizeBufferData[rgbaIndex + 2] = Float(bufferToNormalize[rgbaIndex + 2]) / 255.0

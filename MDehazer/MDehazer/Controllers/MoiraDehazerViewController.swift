@@ -80,22 +80,6 @@ class MoiraDehazerViewController: UIViewController {
                                                normalizationFunction: imageDispatcher.normalize)
                 
                 let inputFloatBufferData: ImageBufferData<Float> = inputImageBuffer.data()
-//                for index in 0..<imageSize
-//                {
-//                    let rgbaIndex = index * bytesPerPixel
-//                    inputFloatBufferData[index] = Float(imageDataBuffer[index]) / 255.0
-//
-//                    inputFloatBufferData[rgbaIndex] = Float(imageDataBuffer[rgbaIndex]) / 255.0
-//                    inputFloatBufferData[rgbaIndex + 1] = Float(imageDataBuffer[rgbaIndex + 1]) / 255.0
-//                    inputFloatBufferData[rgbaIndex + 2] = Float(imageDataBuffer[rgbaIndex + 2]) / 255.0
-//                    inputFloatBufferData[rgbaIndex + 3] = Float(imageDataBuffer[rgbaIndex + 3]) / 255.0
-//                }
-                
-   
-//                let imageDispatcher: ImageDispatcher = ImageDispatcher()
-                
-//                imageDispatcher.dispatchImageFunction(imageBuffer: inputImageBuffer,
-//                                                      samplerFunction: imageDispatcher.doSomething(imageData:rgbIndex:))
                 
                 let configuration = DarkChannelPriorConfiguration(width: width,
                                                                   height: height,

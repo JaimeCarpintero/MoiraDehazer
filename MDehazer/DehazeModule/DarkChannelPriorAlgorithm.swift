@@ -32,7 +32,7 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
             if(mCurrentWidth != width || mCurrentHeight != height){
                 mTransmissionMap = ImageBuffer<Float>(width: width,
                                                       height: height,
-                                                      channels: channels,
+                                                      channels: 1,
                                                       initialValue: 0.0)
                 mCurrentWidth = width
                 mCurrentHeight = height

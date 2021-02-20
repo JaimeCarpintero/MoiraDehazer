@@ -60,6 +60,9 @@ class MoiraDehazerViewController: UIViewController {
                     fatalError("Could not retrieve data from image")
                 }
                 
+                //Retrieve data in a way that we can manipulate
+                let imageDataBuffer = imageBuffer.bindMemory(to: UInt8.self, capacity: imageSize * bytesPerPixel)
+                
                 let inputImageBuffer: ImageBuffer<Float> = ImageBuffer<Float>(width: width,
                                                                         height: height,
                                                                         channels: channelRGBA,
@@ -70,10 +73,28 @@ class MoiraDehazerViewController: UIViewController {
                                                                          channels: channelRGBA,
                                                                          initialValue: 1.0)
                 
-                let floatBufferData: ImageBufferData<Float> = inputImageBuffer.data()
-   
                 let imageDispatcher: ImageDispatcher = ImageDispatcher()
-//                imageDispatcher.dispatchImageFunction(imageBuffer: buffer,
+                //Normalize source data image from cgImage context into imageBuffer<float>
+                imageDispatcher.normalizeImage(bufferToNormalize: imageDataBuffer,
+                                               normalizeBuffer: inputImageBuffer,
+                                               normalizationFunction: imageDispatcher.normalize)
+                
+                let inputFloatBufferData: ImageBufferData<Float> = inputImageBuffer.data()
+//                for index in 0..<imageSize
+//                {
+//                    let rgbaIndex = index * bytesPerPixel
+//                    inputFloatBufferData[index] = Float(imageDataBuffer[index]) / 255.0
+//
+//                    inputFloatBufferData[rgbaIndex] = Float(imageDataBuffer[rgbaIndex]) / 255.0
+//                    inputFloatBufferData[rgbaIndex + 1] = Float(imageDataBuffer[rgbaIndex + 1]) / 255.0
+//                    inputFloatBufferData[rgbaIndex + 2] = Float(imageDataBuffer[rgbaIndex + 2]) / 255.0
+//                    inputFloatBufferData[rgbaIndex + 3] = Float(imageDataBuffer[rgbaIndex + 3]) / 255.0
+//                }
+                
+   
+//                let imageDispatcher: ImageDispatcher = ImageDispatcher()
+                
+//                imageDispatcher.dispatchImageFunction(imageBuffer: inputImageBuffer,
 //                                                      samplerFunction: imageDispatcher.doSomething(imageData:rgbIndex:))
                 
                 let configuration = DarkChannelPriorConfiguration(width: width,
@@ -86,16 +107,15 @@ class MoiraDehazerViewController: UIViewController {
                                        output: outputImageBuffer)
                 
                 
-                let imageDataBuffer = imageBuffer.bindMemory(to: UInt8.self, capacity: imageSize * bytesPerPixel)
-                
                 for index in 0..<imageSize{
                     let rgbaIndex = index * bytesPerPixel
-                    imageDataBuffer[rgbaIndex] = UInt8(floatBufferData[rgbaIndex] * 255)
-                    imageDataBuffer[rgbaIndex + 1] = UInt8(floatBufferData[rgbaIndex + 1] * 255)
-                    imageDataBuffer[rgbaIndex + 2] = UInt8(floatBufferData[rgbaIndex + 2] * 255)
-                    imageDataBuffer[rgbaIndex + 3] = UInt8(floatBufferData[rgbaIndex + 3] * 255)
+                    imageDataBuffer[rgbaIndex] = UInt8(inputFloatBufferData[rgbaIndex] * 255)
+                    imageDataBuffer[rgbaIndex + 1] = UInt8(inputFloatBufferData[rgbaIndex + 1] * 255)
+                    imageDataBuffer[rgbaIndex + 2] = UInt8(inputFloatBufferData[rgbaIndex + 2] * 255)
+                    imageDataBuffer[rgbaIndex + 3] = UInt8(inputFloatBufferData[rgbaIndex + 3] * 255)
                 }
                 
+                //Prepare context to retrieve the new image to be displayed
                 let outputCGImage = newImageContext.makeImage()!
                 let outputImage = UIImage(cgImage: outputCGImage, scale: sourceImage.scale, orientation: sourceImage.imageOrientation)
                 return outputImage
@@ -113,7 +133,6 @@ extension MoiraDehazerViewController: UINavigationControllerDelegate{
 extension MoiraDehazerViewController: UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         
         if let imagePickedByUser = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             dehazeImageView.image = getNewImage(sourceImage: imagePickedByUser)

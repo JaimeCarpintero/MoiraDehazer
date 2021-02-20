@@ -13,7 +13,8 @@ let channelRGBA: Int = 4
 class ImageDispatcher
 {
     func dispatchImageFunction(imageBuffer: ImageBuffer<Float>,
-                               samplerFunction: @escaping (_ myImageData: ImageBufferData<Float>, _ rgbIndex: Int) -> Void)
+                               samplerFunction: @escaping (_ myImageData: ImageBufferData<Float>,
+                                                           _ rgbIndex: Int) -> Void)
     {
         let width: Int = imageBuffer.width()
         let height: Int = imageBuffer.height()
@@ -73,11 +74,71 @@ class ImageDispatcher
         
     }
     
+    func normalizeImage(bufferToNormalize: UnsafeMutablePointer<UInt8>,
+                        normalizeBuffer: ImageBuffer<Float>,
+                        normalizationFunction: @escaping (_ sourceData: UnsafeMutablePointer<UInt8>,
+                                                          _ myImageData: ImageBufferData<Float>,
+                                                          _ rgbaIndex: Int) -> Void)
+    {
+        let width: Int = normalizeBuffer.width()
+        let height: Int = normalizeBuffer.height()
+        
+        let numberOfDispatchers: Int = 4
+        var regions : [ImageRegion] = []
+        let heightPartition = height / numberOfDispatchers
+        let heightResidue: Int = height % numberOfDispatchers
+        
+        for index in 0..<numberOfDispatchers{
+            let top = (index * heightPartition)
+            var bottom = top + heightPartition
+            if(index == numberOfDispatchers - 1){
+                bottom = bottom + heightResidue
+            }
+            regions.append(ImageRegion(top: top, bottom: bottom, left: 0, right: width))
+        }
+        
+        let channels = normalizeBuffer.channels()
+        let imageData: ImageBufferData<Float> = normalizeBuffer.data()
+        let dispatchGroup: DispatchGroup = DispatchGroup()
+        
+        for index in 0..<(regions.count){
+            dispatchGroup.enter()
+            DispatchQueue.global(qos: .background).async{
+                let region: ImageRegion = regions[index]
+                for row in region.top..<region.bottom{
+                    for col in region.left..<region.right{
+                        let rgbIndex = (row * width + col) * channels
+                        normalizationFunction(bufferToNormalize,
+                                              imageData,
+                                              rgbIndex)
+                        
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .global()){
+            print("Finishing Image normalization process")
+        }
+        dispatchGroup.wait()
+        print("Starting image normalization")
+    }
+    
     func doSomething(imageData: ImageBufferData<Float>, rgbIndex: Int){
         imageData[rgbIndex] = 0.5
         imageData[rgbIndex + 1] = 0.75
         imageData[rgbIndex + 2] = 0.5
         imageData[rgbIndex + 3] = 1.0
+    }
+    
+    func normalize(bufferToNormalize: UnsafeMutablePointer<UInt8>,
+                   normalizeBufferData: ImageBufferData<Float>,
+                   rgbaIndex: Int)
+    {
+        normalizeBufferData[rgbaIndex] = Float(bufferToNormalize[rgbaIndex]) / 255.0
+        normalizeBufferData[rgbaIndex + 1] = Float(bufferToNormalize[rgbaIndex + 1]) / 255.0
+        normalizeBufferData[rgbaIndex + 2] = Float(bufferToNormalize[rgbaIndex + 2]) / 255.0
+        normalizeBufferData[rgbaIndex + 3] = Float(bufferToNormalize[rgbaIndex + 3]) / 255.0
     }
 
     

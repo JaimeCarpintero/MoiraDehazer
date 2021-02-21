@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MDehazer
 //
-//  Created by Jaime_Viri on 1/23/21.
-//
+//  Created by Jaime Carpintero Carrillo on 1/23/21.
+//  jaime.carpintero.carrillo@gmail.com
 
 import UIKit
 import CoreData

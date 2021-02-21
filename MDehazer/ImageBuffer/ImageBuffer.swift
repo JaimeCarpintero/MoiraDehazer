@@ -3,7 +3,7 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
-//  jaime.carpintero@uabc.edu.mx
+//  jaime.carpintero.carrillo@gmail.com
 
 import Foundation
 
@@ -13,7 +13,7 @@ class ImageBuffer<T>{
         mHeight = height
         mImageSize = width * height * channels
         mChannels = channels
-        mData = ImageBufferData<T>(dataSize: mImageSize, initVal: initialValue)
+        mData = BufferData<T>(dataSize: mImageSize, initVal: initialValue)
     }
     
     func setData(index: Int, value: T){
@@ -37,7 +37,7 @@ class ImageBuffer<T>{
         return mChannels
     }
     
-    func data() -> ImageBufferData<T>{
+    func data() -> BufferData<T>{
         return mData
     }
 
@@ -46,5 +46,5 @@ class ImageBuffer<T>{
     private var mHeight: Int
     private var mImageSize: Int
     private var mChannels: Int
-    private var mData: ImageBufferData<T>
+    private var mData: BufferData<T>
 }

@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0F876F25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F876E25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift */; };
+		EB0F877225E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F877125E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift */; };
 		EB17B98825C8D2E700735957 /* AbstractDehazeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98725C8D2E700735957 /* AbstractDehazeConfiguration.swift */; };
 		EB17B98C25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */; };
 		EB17B98F25C8D54E00735957 /* IDehazeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */; };
 		EB17B99225C8D5F200735957 /* DarkChannelPriorAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */; };
 		EB1C288725BE37F600C022E5 /* ImageBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288625BE37F600C022E5 /* ImageBuffer.swift */; };
 		EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288A25BE38B100C022E5 /* ImageUtils.swift */; };
-		EB1C288F25BE7CA600C022E5 /* ImageBufferData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */; };
+		EB1C288F25BE7CA600C022E5 /* BufferData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1C288E25BE7CA600C022E5 /* BufferData.swift */; };
 		EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91525BD12F70060BB4F /* AppDelegate.swift */; };
 		EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */; };
 		EB7EF91A25BD12F70060BB4F /* MoiraDehazerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91925BD12F70060BB4F /* MoiraDehazerViewController.swift */; };
@@ -24,13 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB0F876E25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientLightDarkPixel.swift; sourceTree = "<group>"; };
+		EB0F877125E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientLightBrightestPixels.swift; sourceTree = "<group>"; };
 		EB17B98725C8D2E700735957 /* AbstractDehazeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDehazeConfiguration.swift; sourceTree = "<group>"; };
 		EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkChannelPriorConfiguration.swift; sourceTree = "<group>"; };
 		EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDehazeAlgorithm.swift; sourceTree = "<group>"; };
 		EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkChannelPriorAlgorithm.swift; sourceTree = "<group>"; };
 		EB1C288625BE37F600C022E5 /* ImageBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuffer.swift; sourceTree = "<group>"; };
 		EB1C288A25BE38B100C022E5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
-		EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBufferData.swift; sourceTree = "<group>"; };
+		EB1C288E25BE7CA600C022E5 /* BufferData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferData.swift; sourceTree = "<group>"; };
 		EB7EF91225BD12F70060BB4F /* MDehazer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDehazer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7EF91525BD12F70060BB4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0F876A25E2C362005D5C57 /* ImageBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				EB1C288E25BE7CA600C022E5 /* BufferData.swift */,
+				EB1C288625BE37F600C022E5 /* ImageBuffer.swift */,
+			);
+			path = ImageBuffer;
+			sourceTree = "<group>";
+		};
+		EB0F876C25E2C36D005D5C57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EB1C288A25BE38B100C022E5 /* ImageUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		EB17B98625C8D2C500735957 /* DehazeModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +81,8 @@
 				EB17B98B25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift */,
 				EB17B98E25C8D54E00735957 /* IDehazeAlgorithm.swift */,
 				EB17B99125C8D5F200735957 /* DarkChannelPriorAlgorithm.swift */,
+				EB0F876E25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift */,
+				EB0F877125E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift */,
 			);
 			path = DehazeModule;
 			sourceTree = "<group>";
@@ -67,10 +90,9 @@
 		EB1C288925BE37FB00C022E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EB0F876C25E2C36D005D5C57 /* Utils */,
+				EB0F876A25E2C362005D5C57 /* ImageBuffer */,
 				EB17B98625C8D2C500735957 /* DehazeModule */,
-				EB1C288A25BE38B100C022E5 /* ImageUtils.swift */,
-				EB1C288E25BE7CA600C022E5 /* ImageBufferData.swift */,
-				EB1C288625BE37F600C022E5 /* ImageBuffer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -208,10 +230,12 @@
 				EB17B98C25C8D3EF00735957 /* DarkChannelPriorConfiguration.swift in Sources */,
 				EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */,
 				EB17B98825C8D2E700735957 /* AbstractDehazeConfiguration.swift in Sources */,
+				EB0F877225E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift in Sources */,
 				EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */,
 				EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */,
 				EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */,
-				EB1C288F25BE7CA600C022E5 /* ImageBufferData.swift in Sources */,
+				EB0F876F25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift in Sources */,
+				EB1C288F25BE7CA600C022E5 /* BufferData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
-//  jaime.carpintero@uabc.edu.mx
+//  jaime.carpintero.carrillo@gmail.com
 
 import UIKit
 
@@ -79,7 +79,7 @@ class MoiraDehazerViewController: UIViewController {
                                                normalizeBuffer: inputImageBuffer,
                                                normalizationFunction: imageDispatcher.normalize)
                 
-                let inputFloatBufferData: ImageBufferData<Float> = inputImageBuffer.data()
+                let outputFloatBufferData: BufferData<Float> = outputImageBuffer.data()
                 
                 let configuration = DarkChannelPriorConfiguration(width: width,
                                                                   height: height,
@@ -93,10 +93,10 @@ class MoiraDehazerViewController: UIViewController {
                 
                 for index in 0..<imageSize{
                     let rgbaIndex = index * bytesPerPixel
-                    imageDataBuffer[rgbaIndex] = UInt8(inputFloatBufferData[rgbaIndex] * 255)
-                    imageDataBuffer[rgbaIndex + 1] = UInt8(inputFloatBufferData[rgbaIndex + 1] * 255)
-                    imageDataBuffer[rgbaIndex + 2] = UInt8(inputFloatBufferData[rgbaIndex + 2] * 255)
-                    imageDataBuffer[rgbaIndex + 3] = UInt8(inputFloatBufferData[rgbaIndex + 3] * 255)
+                    imageDataBuffer[rgbaIndex] = UInt8(outputFloatBufferData[rgbaIndex] * 255)
+                    imageDataBuffer[rgbaIndex + 1] = UInt8(outputFloatBufferData[rgbaIndex + 1] * 255)
+                    imageDataBuffer[rgbaIndex + 2] = UInt8(outputFloatBufferData[rgbaIndex + 2] * 255)
+                    imageDataBuffer[rgbaIndex + 3] = UInt8(outputFloatBufferData[rgbaIndex + 3] * 255)
                 }
                 
                 //Prepare context to retrieve the new image to be displayed

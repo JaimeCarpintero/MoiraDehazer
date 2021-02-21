@@ -3,12 +3,18 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo 23-Jan-2021
-//  jaime.carpintero@uabc.edu.mx
+//  jaime.carpintero.carrillo@gmail.com
 
 import Foundation
 
-class ImageBufferData<T>{
+class BufferData<T>{
     init(dataSize: Int, initVal: T) {
+        mData = UnsafeMutablePointer<T>.allocate(capacity: dataSize)
+        for index in 0..<dataSize{
+            mData[index] = initVal
+        }
+    }
+    init(dataSize: Int) {
         mData = UnsafeMutablePointer<T>.allocate(capacity: dataSize)
     }
     subscript(index: Int) -> T{

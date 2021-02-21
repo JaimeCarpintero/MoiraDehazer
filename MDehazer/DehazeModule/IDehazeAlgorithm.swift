@@ -3,7 +3,7 @@
 //  MDehazer
 //
 //  Created by Jaime Carpintero Carrillo on 2/1/21.
-//  jaime.carpintero@uabc.edu.mx
+//  jaime.carpintero.carrillo@gmail.com
 
 import Foundation
 

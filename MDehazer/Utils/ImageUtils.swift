@@ -10,8 +10,21 @@ import Foundation
 let channelRGB: Int = 3
 let channelRGBA: Int = 4
 
+/*
+ @ImageDispatcher  performs multithreaded process related to normalization/dehazing process
+ */
 class ImageDispatcher
 {
+    /*
+     @dispatchtDehazeFunction executes the process to dehaze the input image in a multithreaded fashion
+     @param imageBuffer a @ref mageBuffer<Float> that holds the haze image's data
+     @param outputBuffer a @ref mageBuffer<Float> that will hold the dehaze image's data
+     @param transmissionMap a @ref BufferData<Float> that holds the data of the transmission map
+     @param ambientLightR a @ref Float that defines the red component ambient light
+     @param ambientLightG a @ref Float that defines the green component ambient light
+     @param ambientLightB a @ref Float that defines the blue component ambient light
+     @param samplerFunction a function that will be executed in a multithread fashion
+     */
     func dispatchtDehazeFunction(imageBuffer: ImageBuffer<Float>,
                                  outputBuffer: ImageBuffer<Float>,
                                  transmissionMap: BufferData<Float>,
@@ -78,7 +91,17 @@ class ImageDispatcher
         
     }
     
-    
+    /*
+     @dispatchTransmissionMapFunction executes the process to generate the transmission map in a multithreaded fashion
+     @param imageBuffer a @ref mageBuffer<Float> that holds the image's data
+     @param transmissionMap a @ref BufferData<Float> that holds the data of the transmission map
+     @param windowSize a @ref Int that defines the window size of the sampler function
+     @param ambientLightR a @ref Float that defines the red component ambient light
+     @param ambientLightG a @ref Float that defines the green component ambient light
+     @param ambientLightB a @ref Float that defines the blue component ambient light
+     @param wHazeFator a @ref Float that defines the haze factor that should be used in the tranmission map generation process
+     @param samplerFunction a function that will be executed in a multithread fashion
+     */
     func dispatchTransmissionMapFunction(imageBuffer: ImageBuffer<Float>,
                                          transmissionMap: BufferData<Float>,
                                          windowSize: Int,
@@ -151,68 +174,12 @@ class ImageDispatcher
         
     }
     
-    func dispatchImageFunction(imageBuffer: ImageBuffer<Float>,
-                               samplerFunction: @escaping (_ myImageData: BufferData<Float>,
-                                                           _ rgbIndex: Int) -> Void)
-    {
-        let width: Int = imageBuffer.width()
-        let height: Int = imageBuffer.height()
-        
-        let numberOfDispatchers: Int = 4
-        var regions : [ImageRegion] = []
-        let heightPartition = height / numberOfDispatchers
-        let heightResidue: Int = height % numberOfDispatchers
-        
-        for index in 0..<numberOfDispatchers{
-            let top = (index * heightPartition)
-            var bottom = top + heightPartition
-            if(index == numberOfDispatchers - 1){
-                bottom = bottom + heightResidue
-            }
-            regions.append(ImageRegion(top: top, bottom: bottom, left: 0, right: width))
-        }
-        
-        let channels = imageBuffer.channels()
-        let imageData: BufferData<Float> = imageBuffer.data()
-        let dispatchGroup: DispatchGroup = DispatchGroup()
-        
-        for index in 0..<(regions.count){
-            dispatchGroup.enter()
-            DispatchQueue.global(qos: .background).async{
-                let region: ImageRegion = regions[index]
-                for row in region.top..<region.bottom{
-                    for col in region.left..<region.right{
-                        let rgbIndex = (row * width + col) * channels
-                        if(index == 0){
-                            samplerFunction(imageData, rgbIndex)
-                        }else if(index == 1){
-                            imageData[rgbIndex] = 0.85
-                            imageData[rgbIndex + 1] = 0.55
-                            imageData[rgbIndex + 2] = 0.45
-                            imageData[rgbIndex + 3] = 1.0
-                        }else if(index == 2){
-                            imageData[rgbIndex] = 0.2
-                            imageData[rgbIndex + 1] = 0.3
-                            imageData[rgbIndex + 2] = 0.5
-                            imageData[rgbIndex + 3] = 1.0
-                        }else{
-                            imageData[rgbIndex] = 0.0
-                            imageData[rgbIndex + 1] = 0.0
-                            imageData[rgbIndex + 2] = 1.0
-                            imageData[rgbIndex + 3] = 1.0
-                        }
-                    }
-                }
-                dispatchGroup.leave()
-            }
-        }
-        dispatchGroup.notify(queue: .global()){
-            print("Finished work")
-        }
-        dispatchGroup.wait()
-        
-    }
-    
+    /*
+     @normalizeImage normalizes 8bithdepth image data
+     @param bufferToNormalize an @ref UnsafeMutablePointer<Uint8> that holds the image to be normalized
+     @param normalizeBuffer a @ref ImageBuffer<Float> that will hold the normalized data
+     @param normalizationFunction a function that will be performed in a multithreaded way to normalize the input data provided
+     */
     func normalizeImage(bufferToNormalize: UnsafeMutablePointer<UInt8>,
                         normalizeBuffer: ImageBuffer<Float>,
                         normalizationFunction: @escaping (_ sourceData: UnsafeMutablePointer<UInt8>,
@@ -262,13 +229,9 @@ class ImageDispatcher
         dispatchGroup.wait()
     }
     
-    func doSomething(imageData: BufferData<Float>, rgbIndex: Int){
-        imageData[rgbIndex] = 0.5
-        imageData[rgbIndex + 1] = 0.75
-        imageData[rgbIndex + 2] = 0.5
-        imageData[rgbIndex + 3] = 1.0
-    }
-    
+    /*
+     @normalize sampler function used by @ref normalizeImage to normalize image data
+     */
     func normalize(bufferToNormalize: UnsafeMutablePointer<UInt8>,
                    normalizeBufferData: BufferData<Float>,
                    rgbaIndex: Int){
@@ -278,7 +241,9 @@ class ImageDispatcher
         normalizeBufferData[rgbaIndex + 3] = Float(bufferToNormalize[rgbaIndex + 3]) / 255.0
     }
 
-    
+    /*
+     @ImageRegion helps to define regions for to divide image in order to perform process in a multithread fashion
+     */
     private struct ImageRegion{
         init(top: Int, bottom: Int, left: Int, right: Int) {
             self.top = top

@@ -7,6 +7,9 @@
 
 import Foundation
 
+/*
+ @AbstractDehazeConfiguration defines necessary data to be implemented by a dehazer configuration
+ */
 protocol AbstractDehazeConfiguration{
     var width: Int { get set }
     var height: Int { get set }

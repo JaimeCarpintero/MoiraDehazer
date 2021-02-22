@@ -7,6 +7,9 @@
 
 import Foundation
 
+/*
+ @IDehazeAlgorithm defines the necessary behavior to define a dehaze algorithm
+ */
 protocol IDehazeAlgorithm{
     func apply(configuration: AbstractDehazeConfiguration,
                input: ImageBuffer<Float>,

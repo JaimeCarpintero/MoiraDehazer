@@ -7,6 +7,9 @@
 
 import Foundation
 
+/*
+ @DarkChannelPriorConfiguration wraps the essential data to perform a DarkChannelPrior based dehaze algorithm
+ */
 struct DarkChannelPriorConfiguration : AbstractDehazeConfiguration{
     init(width: Int,
          height: Int,

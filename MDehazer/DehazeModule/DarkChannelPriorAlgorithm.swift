@@ -8,6 +8,7 @@
 import Foundation
 
 class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
+    
     init(){
         mAmbientLight = AmbientLight()
         mCurrentWidth = 1
@@ -17,6 +18,7 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
                                               channels: 1,
                                               initialValue: 1.0)
     }
+    
     func apply(configuration: AbstractDehazeConfiguration,
                input: ImageBuffer<Float>,
                output: ImageBuffer<Float>){

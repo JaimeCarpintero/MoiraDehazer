@@ -23,8 +23,8 @@
 		EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91E25BD12F70060BB4F /* MDehazer.xcdatamodeld */; };
 		EB7EF92225BD12F80060BB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92125BD12F80060BB4F /* Assets.xcassets */; };
 		EB7EF92525BD12F80060BB4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92325BD12F80060BB4F /* LaunchScreen.storyboard */; };
-		EB84CE7B25E5D6BD008B7941 /* libSoftmatting.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */; };
 		EB84CE8125E5DAED008B7941 /* SoftMattingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */; };
+		EB84CEC825E5F91C008B7941 /* libSoftmatting.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,11 +46,11 @@
 		EB7EF92125BD12F80060BB4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7EF92425BD12F80060BB4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7EF92625BD12F80060BB4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libSoftmatting.dylib; sourceTree = "<group>"; };
 		EB84CE7D25E5D74D008B7941 /* SoftMatting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftMatting.h; sourceTree = "<group>"; };
 		EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftMattingWrapper.h; sourceTree = "<group>"; };
 		EB84CE7F25E5DAED008B7941 /* MDehazer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MDehazer-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SoftMattingWrapper.mm; sourceTree = "<group>"; };
+		EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSoftmatting.dylib; path = ../../../../SoftMattingLibrary/lib/mac/shared/libSoftmatting.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB84CE7B25E5D6BD008B7941 /* libSoftmatting.dylib in Frameworks */,
+				EB84CEC825E5F91C008B7941 /* libSoftmatting.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +112,7 @@
 				EB1C288925BE37FB00C022E5 /* Models */,
 				EB7EF91425BD12F70060BB4F /* MDehazer */,
 				EB7EF91325BD12F70060BB4F /* Products */,
+				EB84CEC725E5F91C008B7941 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,13 +174,20 @@
 		EB84CE7925E5D694008B7941 /* SoftMatting */ = {
 			isa = PBXGroup;
 			children = (
-				EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */,
+				EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */,
 				EB84CE7D25E5D74D008B7941 /* SoftMatting.h */,
 				EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */,
 				EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */,
 				EB84CE7F25E5DAED008B7941 /* MDehazer-Bridging-Header.h */,
 			);
 			path = SoftMatting;
+			sourceTree = "<group>";
+		};
+		EB84CEC725E5F91C008B7941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -33,6 +33,10 @@ class BufferData<T>{
         mData = UnsafeMutablePointer<T>.allocate(capacity: dataSize)
     }
     
+    func rawData() -> UnsafeMutablePointer<T>{
+        return mData
+    }
+    
     //subscript that allows the usage of the [] operator 
     subscript(index: Int) -> T{
         get{

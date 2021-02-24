@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,8 +24,34 @@
 		EB7EF92225BD12F80060BB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92125BD12F80060BB4F /* Assets.xcassets */; };
 		EB7EF92525BD12F80060BB4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92325BD12F80060BB4F /* LaunchScreen.storyboard */; };
 		EB84CE8125E5DAED008B7941 /* SoftMattingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */; };
-		EB84CEC825E5F91C008B7941 /* libSoftmatting.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */; };
+		EBF881BD25E6AEE1007CC343 /* libSoftmatting.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF881BA25E6AE92007CC343 /* libSoftmatting.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		EBF881BE25E6AF09007CC343 /* libSoftmatting.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = EBF881BA25E6AE92007CC343 /* libSoftmatting.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EBF881C025E6AF3C007CC343 /* libSoftmatting.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBF881BA25E6AE92007CC343 /* libSoftmatting.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB7A8B4D25E6331D007ADD9F /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EBF881BE25E6AF09007CC343 /* libSoftmatting.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		EBF881BF25E6AF2F007CC343 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EBF881C025E6AF3C007CC343 /* libSoftmatting.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EB0F876E25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientLightDarkPixel.swift; sourceTree = "<group>"; };
@@ -37,6 +63,7 @@
 		EB1C288625BE37F600C022E5 /* ImageBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuffer.swift; sourceTree = "<group>"; };
 		EB1C288A25BE38B100C022E5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		EB1C288E25BE7CA600C022E5 /* BufferData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferData.swift; sourceTree = "<group>"; };
+		EB7A8B4425E62B2D007ADD9F /* Libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Libraries; sourceTree = "<group>"; };
 		EB7EF91225BD12F70060BB4F /* MDehazer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDehazer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7EF91525BD12F70060BB4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7EF91725BD12F70060BB4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +77,7 @@
 		EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftMattingWrapper.h; sourceTree = "<group>"; };
 		EB84CE7F25E5DAED008B7941 /* MDehazer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MDehazer-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SoftMattingWrapper.mm; sourceTree = "<group>"; };
-		EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSoftmatting.dylib; path = ../../../../SoftMattingLibrary/lib/mac/shared/libSoftmatting.dylib; sourceTree = "<group>"; };
+		EBF881BA25E6AE92007CC343 /* libSoftmatting.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSoftmatting.dylib; path = Libraries/SoftMatting/libSoftmatting.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB84CEC825E5F91C008B7941 /* libSoftmatting.dylib in Frameworks */,
+				EBF881BD25E6AEE1007CC343 /* libSoftmatting.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +201,6 @@
 		EB84CE7925E5D694008B7941 /* SoftMatting */ = {
 			isa = PBXGroup;
 			children = (
-				EB84CEC625E5F904008B7941 /* libSoftmatting.dylib */,
 				EB84CE7D25E5D74D008B7941 /* SoftMatting.h */,
 				EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */,
 				EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */,
@@ -186,6 +212,8 @@
 		EB84CEC725E5F91C008B7941 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBF881BA25E6AE92007CC343 /* libSoftmatting.dylib */,
+				EB7A8B4425E62B2D007ADD9F /* Libraries */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB7EF92925BD12F80060BB4F /* Build configuration list for PBXNativeTarget "MDehazer" */;
 			buildPhases = (
+				EBF881BF25E6AF2F007CC343 /* CopyFiles */,
 				EB7EF90E25BD12F70060BB4F /* Sources */,
 				EB7EF90F25BD12F70060BB4F /* Frameworks */,
 				EB7EF91025BD12F70060BB4F /* Resources */,
+				EB7A8B4D25E6331D007ADD9F /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -226,7 +256,7 @@
 				};
 			};
 			buildConfigurationList = EB7EF90D25BD12F70060BB4F /* Build configuration list for PBXProject "MDehazer" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -303,7 +333,9 @@
 		EB7EF92725BD12F80060BB4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -335,6 +367,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = G47YZ363G6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -351,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -364,7 +397,9 @@
 		EB7EF92825BD12F80060BB4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -396,6 +431,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G47YZ363G6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -406,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -419,16 +455,20 @@
 		EB7EF92A25BD12F80060BB4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G47YZ363G6;
 				INFOPLIST_FILE = MDehazer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@rpath",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,16 +486,20 @@
 		EB7EF92B25BD12F80060BB4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G47YZ363G6;
 				INFOPLIST_FILE = MDehazer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@rpath",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

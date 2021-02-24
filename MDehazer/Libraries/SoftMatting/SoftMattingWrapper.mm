@@ -19,4 +19,22 @@
             encoding:NSUTF8StringEncoding];
 }
 
+-(void)softMatting:(float * _Nonnull)input
+                    tMap:(float * _Nonnull)transmissionMap
+                    channels:(NSInteger)channels
+                    width:(NSInteger)width
+                    height:(NSInteger)height
+                    softMattingWindowSize:(NSInteger)softMattingWindowSize{
+    
+    SoftMatting softMatter;
+    softMatter.softMattingTransmission(input,
+                                       transmissionMap,
+                                       (int)channels,
+                                       (int)width,
+                                       (int)height,
+                                       (int)softMattingWindowSize);
+}
+
+
+
 @end

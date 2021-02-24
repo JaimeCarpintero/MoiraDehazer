@@ -44,6 +44,7 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
             let windowSize: Int = config.windowSize
             let hazeFactor: Float = config.hazeFactor
             let inputImageData: BufferData<Float> = input.data()
+            let transmissionMapData: BufferData<Float> = mTransmissionMap.data()
             
             estimateAmbientLight(inputData: inputImageData,
                                  channels: channels,
@@ -56,6 +57,16 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
                                  windowSize: windowSize,
                                  ambientLight: mAmbientLight,
                                  wHazeFactor: hazeFactor)
+            //Soft matting process
+            let softMattingWindowSize: Int = 7
+            let softMattingWrapper: SoftMattingWrapper = SoftMattingWrapper()
+            softMattingWrapper.softMatting(inputImageData.rawData(),
+                                           tMap: transmissionMapData.rawData(),
+                                           channels: channels,
+                                           width: width,
+                                           height: height,
+                                           softMattingWindowSize: softMattingWindowSize)
+            
             dehaze(input: input,
                    output: output,
                    transmissionMap: mTransmissionMap,

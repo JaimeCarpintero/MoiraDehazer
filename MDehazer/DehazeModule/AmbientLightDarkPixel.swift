@@ -1,9 +1,11 @@
-//
-//  AmbientLightDarkPixel.swift
-//  MDehazer
-//
-//  Created by Jaime Carpintero on 2/21/21.
-//  jaime.carpintero.carrillo@gmail.com
+/*
+ * AmbientLightDarkPixel.swift
+ * MDehazer
+ * (c) 2021 Jaime Carpintero Carrillo
+ * jaime.carpintero.carrillo@gmail.com
+ * jaime.carpintero@uabc.edu.mx
+ * This code is licensed under MIT license (see LICENSE.txt for details)
+*/
 
 import Foundation
 

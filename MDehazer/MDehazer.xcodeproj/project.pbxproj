@@ -23,6 +23,8 @@
 		EB7EF92025BD12F70060BB4F /* MDehazer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB7EF91E25BD12F70060BB4F /* MDehazer.xcdatamodeld */; };
 		EB7EF92225BD12F80060BB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92125BD12F80060BB4F /* Assets.xcassets */; };
 		EB7EF92525BD12F80060BB4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7EF92325BD12F80060BB4F /* LaunchScreen.storyboard */; };
+		EB84CE7B25E5D6BD008B7941 /* libSoftmatting.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */; };
+		EB84CE8125E5DAED008B7941 /* SoftMattingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,11 @@
 		EB7EF92125BD12F80060BB4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7EF92425BD12F80060BB4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7EF92625BD12F80060BB4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libSoftmatting.dylib; sourceTree = "<group>"; };
+		EB84CE7D25E5D74D008B7941 /* SoftMatting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftMatting.h; sourceTree = "<group>"; };
+		EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftMattingWrapper.h; sourceTree = "<group>"; };
+		EB84CE7F25E5DAED008B7941 /* MDehazer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MDehazer-Bridging-Header.h"; sourceTree = "<group>"; };
+		EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SoftMattingWrapper.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB84CE7B25E5D6BD008B7941 /* libSoftmatting.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,7 @@
 		EB7EF90925BD12F70060BB4F = {
 			isa = PBXGroup;
 			children = (
+				EB84CE7825E5D681008B7941 /* Libraries */,
 				EB1C288925BE37FB00C022E5 /* Models */,
 				EB7EF91425BD12F70060BB4F /* MDehazer */,
 				EB7EF91325BD12F70060BB4F /* Products */,
@@ -153,6 +162,26 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		EB84CE7825E5D681008B7941 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				EB84CE7925E5D694008B7941 /* SoftMatting */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		EB84CE7925E5D694008B7941 /* SoftMatting */ = {
+			isa = PBXGroup;
+			children = (
+				EB84CE7A25E5D6BD008B7941 /* libSoftmatting.dylib */,
+				EB84CE7D25E5D74D008B7941 /* SoftMatting.h */,
+				EB84CE7E25E5DA3A008B7941 /* SoftMattingWrapper.h */,
+				EB84CE8025E5DAED008B7941 /* SoftMattingWrapper.mm */,
+				EB84CE7F25E5DAED008B7941 /* MDehazer-Bridging-Header.h */,
+			);
+			path = SoftMatting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +213,7 @@
 				TargetAttributes = {
 					EB7EF91125BD12F70060BB4F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -233,6 +263,7 @@
 				EB0F877225E2C9B6005D5C57 /* AmbientLightBrightestPixels.swift in Sources */,
 				EB7EF91625BD12F70060BB4F /* AppDelegate.swift in Sources */,
 				EB7EF91825BD12F70060BB4F /* SceneDelegate.swift in Sources */,
+				EB84CE8125E5DAED008B7941 /* SoftMattingWrapper.mm in Sources */,
 				EB1C288B25BE38B100C022E5 /* ImageUtils.swift in Sources */,
 				EB0F876F25E2C7E0005D5C57 /* AmbientLightDarkPixel.swift in Sources */,
 				EB1C288F25BE7CA600C022E5 /* BufferData.swift in Sources */,
@@ -382,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G47YZ363G6;
 				INFOPLIST_FILE = MDehazer/Info.plist;
@@ -390,8 +422,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/SoftMatting",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.mx.carpintero.jaime.MDehazer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/SoftMatting/MDehazer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -402,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G47YZ363G6;
 				INFOPLIST_FILE = MDehazer/Info.plist;
@@ -410,8 +449,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/SoftMatting",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.mx.carpintero.jaime.MDehazer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/SoftMatting/MDehazer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

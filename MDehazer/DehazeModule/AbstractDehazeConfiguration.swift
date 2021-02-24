@@ -1,9 +1,11 @@
-//
-//  AbstractDehazeConfiguration.swift
-//  MDehazer
-//
-//  Created by Jaime Carpintero Carrillo on 2/1/21.
-//  jaime.carpintero.carrillo@gmail.com
+/*
+ * AbstractDehazeConfiguration.swift
+ * MDehazer
+ * (c) 2021 Jaime Carpintero Carrillo
+ * jaime.carpintero.carrillo@gmail.com
+ * jaime.carpintero@uabc.edu.mx
+ * This code is licensed under MIT license (see LICENSE.txt for details)
+*/
 
 import Foundation
 

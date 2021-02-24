@@ -34,7 +34,7 @@ class MoiraDehazerViewController: UIViewController {
         present(mImagePicker, animated: true, completion: nil)
     }
     
-    func getNewImage(sourceImage: UIImage) -> UIImage{
+    private func getNewImage(sourceImage: UIImage) -> UIImage{
         
             if let pickedImageCgi = sourceImage.cgImage{
                 let colosrpace = CGColorSpaceCreateDeviceRGB()

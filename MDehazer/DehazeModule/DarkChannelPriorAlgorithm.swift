@@ -57,7 +57,8 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
                                  windowSize: windowSize,
                                  ambientLight: mAmbientLight,
                                  wHazeFactor: hazeFactor)
-            //Soft matting process
+
+            print("Starting softMatting process")
             let softMattingWindowSize: Int = 7
             let softMattingWrapper: SoftMattingWrapper = SoftMattingWrapper()
             softMattingWrapper.softMatting(inputImageData.rawData(),
@@ -66,6 +67,8 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
                                            width: width,
                                            height: height,
                                            softMattingWindowSize: softMattingWindowSize)
+    
+            print("Finishing Soft matting process")
             
             dehaze(input: input,
                    output: output,
@@ -279,9 +282,9 @@ class DarkChannelPriorAlgorithm : IDehazeAlgorithm{
         
         let transmissionForPixel: Float = max(transmissionMap[index], minTransmission)
         
-        let outputR = (inputRWithoutAmbientLight / transmissionForPixel) + ambientLightR
-        let outputG = (inputGWithoutAmbientLight / transmissionForPixel) + ambientLightG
-        let outputB = (inputBWithoutAmbientLight / transmissionForPixel) + ambientLightB
+        let outputR: Float = max(min((inputRWithoutAmbientLight / transmissionForPixel) + ambientLightR, 1.0), 0.0)
+        let outputG: Float = max(min((inputGWithoutAmbientLight / transmissionForPixel) + ambientLightG, 1.0), 0.0)
+        let outputB: Float = max(min((inputBWithoutAmbientLight / transmissionForPixel) + ambientLightB, 1.0), 0.0)
         
         output[rgbaIndex] = outputR
         output[rgbaIndex + 1] = outputG

@@ -7,6 +7,7 @@ This project is based on a more complex solution made in C++ which is my languag
 
 The project is very simple, consists of an image picker and an image view, the idea is to select a hazy mage from the  galery, then apply a dehaze algorithm based on the Dark Channel Prior described in the paper "Single Image Haze Removal Using Dark Channel Prior" by "Kaiming He, Jian Sun and Xiaoou Tang". There is a lot of papers that can be found on the internet that could serve as gudiance aside the one mentioned if more in-depth detail is required.
 
+<img src="RepositoryImages/01.png" width="300">
 ![App Startup](RepositoryImages/01.png)
 
 ![Haze Image Selection](RepositoryImages/02.png)

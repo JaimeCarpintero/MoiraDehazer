@@ -12,11 +12,7 @@ import UIKit
 class MoiraDehazerViewController: UIViewController {
 
     @IBOutlet weak var dehazeImageView: UIImageView!
-    
-    @IBOutlet weak var dehazeFactorSlider: UIStackView!
-    
-    @IBOutlet weak var saturationFactorSlider: NSLayoutConstraint!
-    
+        
     private let mImagePicker: UIImagePickerController = UIImagePickerController()
     private let mDehazeAlgorithm: DarkChannelPriorAlgorithm = DarkChannelPriorAlgorithm()
     

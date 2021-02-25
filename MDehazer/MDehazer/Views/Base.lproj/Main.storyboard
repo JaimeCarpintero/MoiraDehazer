@@ -21,61 +21,11 @@
                                 <rect key="frame" x="15" y="124" width="345" height="463"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-jG-5hQ">
-                                        <rect key="frame" x="0.0" y="1" width="345" height="320.5"/>
+                                        <rect key="frame" x="0.0" y="1" width="345" height="460.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1dB-cM-nno">
-                                        <rect key="frame" x="0.0" y="363" width="345" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dehazing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DV-gU-0Vo">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3tW-84-iGr">
-                                                <rect key="frame" x="13" y="0.0" width="334" height="31"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </slider>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="3tW-84-iGr" firstAttribute="top" secondItem="1dB-cM-nno" secondAttribute="top" id="6UD-uc-Hba"/>
-                                            <constraint firstAttribute="trailing" secondItem="3tW-84-iGr" secondAttribute="trailing" id="E4U-B9-8Yg"/>
-                                            <constraint firstAttribute="bottom" secondItem="3tW-84-iGr" secondAttribute="bottom" id="E9v-hP-wgZ"/>
-                                            <constraint firstItem="1DV-gU-0Vo" firstAttribute="leading" secondItem="1dB-cM-nno" secondAttribute="leading" id="NjG-ON-993"/>
-                                            <constraint firstItem="1DV-gU-0Vo" firstAttribute="top" secondItem="1dB-cM-nno" secondAttribute="top" id="VdD-tV-WC4"/>
-                                            <constraint firstAttribute="bottom" secondItem="1DV-gU-0Vo" secondAttribute="bottom" id="tG0-ZD-GXz"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-rT-Rjz">
-                                        <rect key="frame" x="0.0" y="433" width="345" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhQ-Qp-zM4">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L6Z-ck-02h">
-                                                <rect key="frame" x="13" y="0.0" width="334" height="31"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                            </slider>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="L6Z-ck-02h" secondAttribute="trailing" id="F8s-v7-g5P"/>
-                                            <constraint firstAttribute="bottom" secondItem="L6Z-ck-02h" secondAttribute="bottom" id="ONI-dj-ca7"/>
-                                            <constraint firstAttribute="bottom" secondItem="UhQ-Qp-zM4" secondAttribute="bottom" id="Tmh-ZE-pnB"/>
-                                            <constraint firstItem="UhQ-Qp-zM4" firstAttribute="top" secondItem="tqP-rT-Rjz" secondAttribute="top" id="Yun-Wo-99i"/>
-                                            <constraint firstItem="UhQ-Qp-zM4" firstAttribute="leading" secondItem="tqP-rT-Rjz" secondAttribute="leading" id="nk7-RE-Avk"/>
-                                            <constraint firstItem="L6Z-ck-02h" firstAttribute="top" secondItem="tqP-rT-Rjz" secondAttribute="top" id="ysI-MJ-NBY"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="1dB-cM-nno" secondAttribute="trailing" id="5x4-fy-Jck"/>
-                                    <constraint firstItem="tqP-rT-Rjz" firstAttribute="leading" secondItem="tYW-kX-GPR" secondAttribute="leading" id="LQK-oB-jYR"/>
-                                    <constraint firstAttribute="trailing" secondItem="tqP-rT-Rjz" secondAttribute="trailing" id="M2b-8W-VV2"/>
-                                    <constraint firstItem="1dB-cM-nno" firstAttribute="leading" secondItem="tYW-kX-GPR" secondAttribute="leading" id="efY-G8-2fT"/>
                                     <constraint firstItem="cnF-jG-5hQ" firstAttribute="leading" secondItem="tYW-kX-GPR" secondAttribute="leading" id="hPc-RN-3eI"/>
                                     <constraint firstAttribute="trailing" secondItem="cnF-jG-5hQ" secondAttribute="trailing" id="k3z-sx-5ZF"/>
                                 </constraints>
@@ -99,7 +49,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dehazeFactorSlider" destination="1dB-cM-nno" id="hby-BG-QoY"/>
                         <outlet property="dehazeImageView" destination="cnF-jG-5hQ" id="uWz-7u-13C"/>
                     </connections>
                 </viewController>
@@ -130,9 +79,6 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
